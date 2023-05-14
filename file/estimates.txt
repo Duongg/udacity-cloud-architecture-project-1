@@ -1,0 +1,25 @@
+Write a paragraph or two describing the achievable Recovery Time Objective (RTO) and Recovery Point Objective (RPO) for this Multi-AZ, multi-region database in terms of:
+
+1. Minimum RTO for a single AZ outage 
+        ◦ 00:00 - Problem happens (0 minutes)
+        ◦ 00:01 - Switches to a standby replica in another Availability Zone if you have enabled Multi-AZ. (1 minutes)
+        ◦ 00:02 - Standby replica db become active. (2 minutes)
+    Total Time: 2 minutes
+2. Minimum RTO for a single region outage
+        ◦ 00:00 - Problem happens (0 minutes) 
+        ◦ 00:05 - Alert triggers (5 minutes) 
+        ◦ 00:15 - On-call staff may need to get out of bed, get to computer, log in (10 minutes) 
+        ◦ 00:16 - Promote secondary instance <Read-replica> (1 minutes)
+        ◦ 00:17 - Secondary instance is active(1 minutes)
+        ◦ 00:18 - On-call staff starts investigating issue (10 minutes) 
+        ◦ 00:28 - Root cause is discovered (15 minutes) 
+        ◦ 00:43 - Remediation started (5 minutes) 
+        ◦ 00:48 - Remediation completed
+       Total time: 48 minutes 
+
+3. Minimum RPO for a single AZ outage
+RPO ~ 2 min
+
+
+4. Minimum RPO for a single region outage 
+RTO ~ 17 min
